@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualización de Puntos y Círculos</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Visualización de las practicas INF-121 "PROGRAMACION II"</h1>
+    <div id="grafico" style="width:600px;height:400px;"></div>
+    <script>
+        // Datos del punto y del círculo
+        const punto = { x: 0, y: 3 };
+        const centroCirculo = { x: 2, y: 3 };
+        const radioCirculo = 5;
+
+        // Crear el gráfico del punto
+        const dataPunto = {
+            x: [punto.x],
+            y: [punto.y],
+            mode: 'markers',
+            type: 'scatter',
+            marker: { size: 12 },
+            name: 'Punto'
+        };
+
+        // Crear el gráfico del círculo
+        const theta = Array.from({length: 361}, (_, i) => i * Math.PI / 180);
+        const xCirculo = theta.map(t => centroCirculo.x + radioCirculo * Math.cos(t));
+        const yCirculo = theta.map(t => centroCirculo.y + radioCirculo * Math.sin(t));
+
+        const dataCirculo = {
+            x: xCirculo,
+            y: yCirculo,
+            mode: 'lines',
+            type: 'scatter',
+            name: 'Círculo'
+        };
+
+        const layout = {
+            title: 'Punto y Círculo en el Plano Cartesiano',
+            xaxis: { title: 'X' },
+            yaxis: { title: 'Y' }
+        };
+
+        Plotly.newPlot('grafico', [dataPunto, dataCirculo], layout);
+    </script>
+    <h3>Diseñado por: Univ.Fabricio Oliver Echeverria Poma</h3>
+</body>
+</html>
