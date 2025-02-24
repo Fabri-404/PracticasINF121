@@ -5,47 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualización de Puntos y Círculos</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .grafico-container {
+            display: none;
+            margin: 0 auto;
+        }
+        .centered {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>Visualización de las practicas INF-121 "PROGRAMACION II"</h1>
-    <div id="grafico" style="width:600px;height:400px;"></div>
-    <script>
-        // Datos del punto y del círculo
-        const punto = { x: 0, y: 3 };
-        const centroCirculo = { x: 2, y: 3 };
-        const radioCirculo = 5;
+    <div class="container">
+        <h1 class="centered">Visualización de las prácticas INF-121 "PROGRAMACION II"</h1>
+        <hr>
+        <br><br><br>
+        <div class="button-container">
+            <button class="btn btn-secondary" onclick="window.location.href='https://github.com/tu-usuario/tu-repositorio'">Mi Repositorio</button>
+            <br><br>
+            <button class="btn btn-primary" onclick="mostrarGrafico('grafico1')">Practica 1</button>
+            <button class="btn btn-primary" onclick="mostrarGrafico('grafico2')">Practica 2</button>
+            <!-- Agrega más botones según sea necesario -->
+        </div>
 
-        // Crear el gráfico del punto
-        const dataPunto = {
-            x: [punto.x],
-            y: [punto.y],
-            mode: 'markers',
-            type: 'scatter',
-            marker: { size: 12 },
-            name: 'Punto'
-        };
+        <div id="grafico1" class="grafico-container" style="width:600px;height:400px;"></div>
+        <div id="grafico2" class="grafico-container" style="width:600px;height:400px;"></div>
 
-        // Crear el gráfico del círculo
-        const theta = Array.from({length: 361}, (_, i) => i * Math.PI / 180);
-        const xCirculo = theta.map(t => centroCirculo.x + radioCirculo * Math.cos(t));
-        const yCirculo = theta.map(t => centroCirculo.y + radioCirculo * Math.sin(t));
+        <script>
+            function mostrarGrafico(id) {
+                document.querySelectorAll('.grafico-container').forEach(div => {
+                    div.style.display = 'none';
+                });
+                document.getElementById(id).style.display = 'block';
 
-        const dataCirculo = {
-            x: xCirculo,
-            y: yCirculo,
-            mode: 'lines',
-            type: 'scatter',
-            name: 'Círculo'
-        };
+                if (id === 'grafico1') {
+                    // Datos del punto Practica 1
+                    const punto = { x: 0, y: 3 };
+                    const dataPunto = {
+                        x: [punto.x],
+                        y: [punto.y],
+                        mode: 'markers',
+                        type: 'scatter',
+                        marker: { size: 12 },
+                        name: 'Punto'
+                    };
+                    const layout1 = {
+                        title: 'Punto en el Plano Cartesiano',
+                        xaxis: { title: 'X' },
+                        yaxis: { title: 'Y' }
+                    };
+                    Plotly.newPlot('grafico1', [dataPunto], layout1);
+                } else if (id === 'grafico2') {
+                    // Datos del punto y del círculo Practica 2
+                    const punto = { x: 0, y: 3 };
+                    const centroCirculo = { x: 2, y: 3 };
+                    const radioCirculo = 5;
 
-        const layout = {
-            title: 'Punto y Círculo en el Plano Cartesiano',
-            xaxis: { title: 'X' },
-            yaxis: { title: 'Y' }
-        };
+                    const dataPunto = {
+                        x: [punto.x],
+                        y: [punto.y],
+                        mode: 'markers',
+                        type: 'scatter',
+                        marker: { size: 12 },
+                        name: 'Punto'
+                    };
 
-        Plotly.newPlot('grafico', [dataPunto, dataCirculo], layout);
-    </script>
-    <h3>Diseñado por: Univ.Fabricio Oliver Echeverria Poma</h3>
+                    const theta = Array.from({length: 361}, (_, i) => i * Math.PI / 180);
+                    const xCirculo = theta.map(t => centroCirculo.x + radioCirculo * Math.cos(t));
+                    const yCirculo = theta.map(t => centroCirculo.y + radioCirculo * Math.sin(t));
+
+                    const dataCirculo = {
+                        x: xCirculo,
+                        y: yCirculo,
+                        mode: 'lines',
+                        type: 'scatter',
+                        name: 'Círculo'
+                    };
+
+                    const layout2 = {
+                        title: 'Punto y Círculo en el Plano Cartesiano',
+                        xaxis: { title: 'X' },
+                        yaxis: { title: 'Y' }
+                    };
+
+                    Plotly.newPlot('grafico2', [dataPunto, dataCirculo], layout2);
+                }
+            }
+        </script>
+        <br><br><br><br><br>
+        <h3 class="centered">Diseñado por: Univ.Fabricio Oliver Echeverria Poma</h3>
+    </div>
 </body>
 </html>
