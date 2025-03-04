@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualización de Puntos y Círculos</title>
+    <title>Visualización de Puntos, Líneas y Círculos</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -27,17 +27,16 @@
         <br><br><br>
         <div class="button-container">
             <button class="btn btn-secondary" onclick="window.location.href='https://github.com/Fabri-404/PracticasINF121'">Mi Repositorio</button>
-            <br>
-            <hr>
-            <a href="https://github.com/Fabri-404/PracticasINF121">LINK AUXILIAR, SI NO DA EL BOTON</a>
             <br><br>
             <button class="btn btn-primary" onclick="mostrarGrafico('grafico1')">Practica 1</button>
             <button class="btn btn-primary" onclick="mostrarGrafico('grafico2')">Practica 2</button>
+            <button class="btn btn-primary" onclick="mostrarGrafico('grafico3')">Practica 3</button>
             <!-- Agrega más botones según sea necesario -->
         </div>
 
         <div id="grafico1" class="grafico-container" style="width:600px;height:400px;"></div>
         <div id="grafico2" class="grafico-container" style="width:600px;height:400px;"></div>
+        <div id="grafico3" class="grafico-container" style="width:600px;height:400px;"></div>
 
         <script>
             function mostrarGrafico(id) {
@@ -48,7 +47,7 @@
 
                 if (id === 'grafico1') {
                     // Datos del punto Practica 1
-                    const punto = { x: 0, y: 3 };
+                    const punto = { x: 1, y: 4 };
                     const dataPunto = {
                         x: [punto.x],
                         y: [punto.y],
@@ -65,7 +64,7 @@
                     Plotly.newPlot('grafico1', [dataPunto], layout1);
                 } else if (id === 'grafico2') {
                     // Datos del punto y del círculo Practica 2
-                    const punto = { x: 0, y: 3 };
+                    const punto = { x: 1, y: 4 };
                     const centroCirculo = { x: 2, y: 3 };
                     const radioCirculo = 5;
 
@@ -97,6 +96,26 @@
                     };
 
                     Plotly.newPlot('grafico2', [dataPunto, dataCirculo], layout2);
+                } else if (id === 'grafico3') {
+                    // Datos de la línea Practica 3
+                    const punto1 = { x: 0, y: 0 };
+                    const punto2 = { x: 5, y: 5 };
+
+                    const dataLinea = {
+                        x: [punto1.x, punto2.x],
+                        y: [punto1.y, punto2.y],
+                        mode: 'lines+markers',
+                        type: 'scatter',
+                        name: 'Línea'
+                    };
+
+                    const layout3 = {
+                        title: 'Línea en el Plano Cartesiano',
+                        xaxis: { title: 'X' },
+                        yaxis: { title: 'Y' }
+                    };
+
+                    Plotly.newPlot('grafico3', [dataLinea], layout3);
                 }
             }
         </script>

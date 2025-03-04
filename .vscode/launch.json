@@ -1,0 +1,40 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "GraficoCirculo",
+            "request": "launch",
+            "mainClass": "GraficoCirculo",
+            "projectName": "PRACTICAS_b22c2491"
+        },
+        {
+            "type": "java",
+            "name": "GraficoLinea",
+            "request": "launch",
+            "mainClass": "GraficoLinea",
+            "projectName": "PRACTICAS_b22c2491"
+        },
+        {
+            "type": "java",
+            "name": "LineaCirculo",
+            "request": "launch",
+            "mainClass": "LineaCirculo",
+            "projectName": "PRACTICAS_b22c2491"
+        },
+        {
+            "type": "java",
+            "name": "Punto",
+            "request": "launch",
+            "mainClass": "Punto",
+            "projectName": "PRACTICAS_b22c2491"
+        },
+        {
+            "type": "java",
+            "name": "Launch Punto",
+            "request": "launch",
+            "mainClass": "Punto",
+            "projectName": "PRACTICAS"
+        }
+    ]
+}

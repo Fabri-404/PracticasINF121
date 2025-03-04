@@ -19,7 +19,7 @@ class Punto:
         return "({:.2f},{:.2f})".format(self.x, self.y)
 
 # Ejemplo de uso:
-p1 = Punto(0, 3)
+p1 = Punto(1, 3)
 print(p1)
 x, y = p1.coord_cartesianas()
 print(f"x: {x}, y: {y}")
