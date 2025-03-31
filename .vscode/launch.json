@@ -3,6 +3,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Ecuaciones",
+            "request": "launch",
+            "mainClass": "Ecuaciones",
+            "projectName": "PRACTICAS_b22c2491"
+        },
+        {
+            "type": "java",
             "name": "FiguraGeometrica",
             "request": "launch",
             "mainClass": "FiguraGeometrica",
