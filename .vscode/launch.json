@@ -3,6 +3,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "JAVA.Practica8.PROBLEMA_DIAMANTE.Main",
+            "projectName": "PRACTICAS_b22c2491"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "JAVA.Practica8.Main",
+            "projectName": "PRACTICAS_b22c2491"
+        },
+        {
+            "type": "java",
             "name": "Ecuaciones",
             "request": "launch",
             "mainClass": "Ecuaciones",

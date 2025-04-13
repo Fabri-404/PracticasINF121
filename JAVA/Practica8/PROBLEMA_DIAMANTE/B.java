@@ -1,11 +1,10 @@
-package JAVA.Practica8;
-public class B {
-    public int y;
-    public int z;
+package JAVA.Practica8.PROBLEMA_DIAMANTE;
 
+public class B extends C {
+    public int y;
     public B(int y, int z) {
+        super(z);
         this.y = y;
-        this.z = z;
     }
     public void incrementaYZ() {
         this.y += 1;
