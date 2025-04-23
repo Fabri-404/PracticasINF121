@@ -4,9 +4,6 @@ y = int(input("Valor para y: "))
 z = int(input("Valor para z: "))
 
 objeto = D(x, y, z)
-
-print("Valores iniciales:")
-print(f"x: {objeto.x}, y: {objeto.y}, z: {objeto.z}")
 print("-----------------------------")
 print("IncrementaXZ:")
 objeto.incrementaXZ()
